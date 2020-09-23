@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.11.12
+# v0.11.14
 
 using Markdown
 using InteractiveUtils
@@ -191,9 +191,6 @@ philip_file = download(url, "philip.jpg")  # download to a local file
 # ╔═╡ 9c359212-ec79-11ea-2d7e-0124dad5f127
 philip = load(philip_file)
 
-# ╔═╡ 7703b032-ebca-11ea-3074-0b80a077078e
-philip
-
 # ╔═╡ 7eff3522-ebca-11ea-1a65-59e66a4e72ab
 typeof(philip)
 
@@ -282,7 +279,7 @@ md"## Getting pieces of an image"
 # ╔═╡ ae260168-e932-11ea-38fd-4f2c6f43e21c
 begin 
 	(h, w) = size(philip)
-	head = philip[(h ÷ 2):h, (w ÷ 10): (9w ÷ 10)]
+	head = philip[(h ÷ 2):h, (w ÷ 10):(9w ÷ 10)]
 	# `÷` is typed as \div <TAB>  -- integer division
 end
 
@@ -306,8 +303,8 @@ md"##"
 
 # ╔═╡ 78eafe4e-e933-11ea-3539-c13feb894ef6
 [
- head                   reverse(head, dims=2)
- reverse(head, dims=1)  reverse(reverse(head, dims=1), dims=2)
+ head                  reverse(head, dims=2)
+ reverse(head, dims=1) reverse(reverse(head, dims=1), dims=2)
 ]
 
 # ╔═╡ bf3f9050-e933-11ea-0df7-e5dcff6bb3ee
@@ -744,7 +741,6 @@ grant = decimate(process_raw_camera_data(raw_camera_data), 2)
 # ╠═54c1ba3c-e8d2-11ea-3564-bdaca8563738
 # ╠═6e0fefb6-e8d4-11ea-1f9b-e7a3db40df39
 # ╠═9c359212-ec79-11ea-2d7e-0124dad5f127
-# ╠═7703b032-ebca-11ea-3074-0b80a077078e
 # ╠═7eff3522-ebca-11ea-1a65-59e66a4e72ab
 # ╠═c9cd6c04-ebca-11ea-0990-5fa19ff7ed97
 # ╟─0d873d9c-e93b-11ea-2425-1bd79677fb97
