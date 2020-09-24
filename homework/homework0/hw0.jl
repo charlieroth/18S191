@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.11.8
+# v0.11.14
 
 using Markdown
 using InteractiveUtils
@@ -19,7 +19,7 @@ md"_homework 0, version 2_"
 # ╔═╡ 7308bc54-e6cd-11ea-0eab-83f7535edf25
 # edit the code below to set your name and kerberos ID (i.e. email without @mit.edu)
 
-student = (name = "Jazzy Doe", kerberos_id = "jazz")
+student = (name = "Charlie Roth", kerberos_id = "charlieroth4@icloud.com")
 
 # press the ▶ button in the bottom right of this cell to run your edits
 # or use Shift+Enter
@@ -30,7 +30,7 @@ student = (name = "Jazzy Doe", kerberos_id = "jazz")
 # ╔═╡ cdff6730-e785-11ea-2546-4969521b33a7
 md"""
 
-Submission by: **_$(student.name)_** ($(student.kerberos_id)@mit.edu)
+Submission by: **_$(student.name)_** ($(student.kerberos_id))
 """
 
 # ╔═╡ a2181260-e6cd-11ea-2a69-8d9d31d1ef0e
@@ -41,12 +41,6 @@ First of all, **_welcome to the course!_** We are excited to teach you about rea
 
 Before we start next week, we'd like everyone to **submit this zeroth homework assignment**. It will not affect your grade, but it will help us get everything running smoothly when the course starts. If you're stuck or don't have much time, just fill in your name and ID and submit 🙂
 """
-
-# ╔═╡ 094e39c8-e6ce-11ea-131b-07c4a1199edf
-
-
-# ╔═╡ 31a8fbf8-e6ce-11ea-2c66-4b4d02b41995
-
 
 # ╔═╡ 339c2d5c-e6ce-11ea-32f9-714b3628909c
 md"## Exercise 1 - _Square root by Newton's method_
@@ -98,8 +92,14 @@ md"### Exercise 1.2
 Write a function newton_sqrt(x) which implements the above algorithm."
 
 # ╔═╡ 4896bf0c-e754-11ea-19dc-1380bb356ab6
-function newton_sqrt(x, error_margin=0.01, a=x / 2) # a=x/2 is the default value of `a`
-	return x # this is wrong, write your code here!
+# a=x/2 is the default value of `a`
+function newton_sqrt(x, error_margin=0.01, a=x / 2)
+	b = x / a
+	while abs(x - b) <= 0.01
+		b = x / a
+	    a = (b + a) / 2
+	end
+	return a
 end
 
 # ╔═╡ 7a01a508-e78a-11ea-11da-999d38785348
@@ -182,7 +182,7 @@ end
 md"Just like the definition above, our `sierpinksi` function is _recursive_: it calls itself."
 
 # ╔═╡ 02b9c9d6-e752-11ea-0f32-91b7b6481684
-complexity = 3
+complexity = 5
 
 # ╔═╡ 1eb79812-e7b5-11ea-1c10-63b24803dd8a
 if complexity == 3 
@@ -216,7 +216,12 @@ area_sierpinski(1) = 0.??
 
 # ╔═╡ ca8d2f72-e7b6-11ea-1893-f1e6d0a20dc7
 function area_sierpinski(n)
-	return 1.0
+	final_area = 1.0
+	while n > 0
+		final_area = final_area * (3/4)
+		n = n - 1
+	end
+	return final_area
 end
 
 # ╔═╡ 71c78614-e7bc-11ea-0959-c7a91a10d481
@@ -249,17 +254,6 @@ md"""
 
 # ╔═╡ a60a492a-e7bc-11ea-0f0b-75d81ce46a01
 md"That's it for now, see you next week!"
-
-# ╔═╡ b3c7a050-e855-11ea-3a22-3f514da746a4
-if student.kerberos_id === "jazz"
-	md"""
-!!! danger "Oops!"
-    **Before you submit**, remember to fill in your name and kerberos ID at the top of this notebook!
-	"""
-end
-
-# ╔═╡ d3625d20-e6ce-11ea-394a-53208540d626
-
 
 # ╔═╡ dfdeab34-e751-11ea-0f90-2fa9bbdccb1e
 triangle() = compose(context(), polygon([(1, 1), (0, 1), (1 / 2, 0)]))
@@ -309,10 +303,8 @@ has area **$(area_sierpinski(n))**
 # ╔═╡ Cell order:
 # ╟─fafae38e-e852-11ea-1208-732b4744e4c2
 # ╟─cdff6730-e785-11ea-2546-4969521b33a7
-# ╠═7308bc54-e6cd-11ea-0eab-83f7535edf25
+# ╟─7308bc54-e6cd-11ea-0eab-83f7535edf25
 # ╟─a2181260-e6cd-11ea-2a69-8d9d31d1ef0e
-# ╟─094e39c8-e6ce-11ea-131b-07c4a1199edf
-# ╟─31a8fbf8-e6ce-11ea-2c66-4b4d02b41995
 # ╟─339c2d5c-e6ce-11ea-32f9-714b3628909c
 # ╟─56866718-e6ce-11ea-0804-d108af4e5653
 # ╠═bccf0e88-e754-11ea-3ab8-0170c2d44628
@@ -340,11 +332,9 @@ has area **$(area_sierpinski(n))**
 # ╟─71c78614-e7bc-11ea-0959-c7a91a10d481
 # ╟─c21096c0-e856-11ea-3dc5-a5b0cbf29335
 # ╟─52533e00-e856-11ea-08a7-25e556fb1127
-# ╟─147ed7b0-e856-11ea-0d0e-7ff0d527e352
+# ╠═147ed7b0-e856-11ea-0d0e-7ff0d527e352
 # ╟─c1ecad86-e7bc-11ea-1201-23ee380181a1
 # ╟─c9bf4288-e6ce-11ea-0e13-a36b5e685998
 # ╟─a60a492a-e7bc-11ea-0f0b-75d81ce46a01
-# ╟─b3c7a050-e855-11ea-3a22-3f514da746a4
-# ╟─d3625d20-e6ce-11ea-394a-53208540d626
-# ╟─dfdeab34-e751-11ea-0f90-2fa9bbdccb1e
-# ╟─b923d394-e750-11ea-1971-595e09ab35b5
+# ╠═dfdeab34-e751-11ea-0f90-2fa9bbdccb1e
+# ╠═b923d394-e750-11ea-1971-595e09ab35b5
