@@ -195,13 +195,13 @@ philip = load(philip_file)
 typeof(philip)
 
 # ╔═╡ c9cd6c04-ebca-11ea-0990-5fa19ff7ed97
-RGBX(0.9, 0.1, 0.1)
+RGBX(0.9, 0.3, 0.3)
 
 # ╔═╡ 0d873d9c-e93b-11ea-2425-1bd79677fb97
 md"##"
 
 # ╔═╡ 6b09354a-ebb9-11ea-2d5a-3b75c5ae7aa9
-
+size(philip)
 
 # ╔═╡ 2d6c434e-e93b-11ea-2678-3b9db4975089
 md"##"
@@ -387,8 +387,7 @@ end
 
 # ╔═╡ 2744a556-e94f-11ea-2434-d53c24e59285
 begin
-	color = RGB(0.9, 0.7, 0.2)
-	
+	color = RGB(0.9, 0.2, 0.3)
 	[color, redify(color)]
 end
 
@@ -793,9 +792,9 @@ grant = decimate(process_raw_camera_data(raw_camera_data), 2)
 # ╠═cd5721d0-ede6-11ea-0918-1992c69bccc6
 # ╟─bf2167a4-e93d-11ea-03b2-cdd24b459ba9
 # ╟─5e688928-e939-11ea-0e16-fbc80af390ab
-# ╟─58184d88-e939-11ea-2fc8-73b3476ebe92
-# ╟─2dd09f16-e93a-11ea-2cdc-13f558e3391d
-# ╟─df1b7996-e93b-11ea-1a3a-81b4ec520679
+# ╠═58184d88-e939-11ea-2fc8-73b3476ebe92
+# ╠═2dd09f16-e93a-11ea-2cdc-13f558e3391d
+# ╠═df1b7996-e93b-11ea-1a3a-81b4ec520679
 # ╟─b8daeea0-ec79-11ea-34b5-3f13e8a56a42
 # ╟─bf1bb2c8-ec79-11ea-0671-3ffb34828f3c
 # ╟─69e3aa82-e93c-11ea-23fe-c1103d989cba

@@ -1,11 +1,14 @@
 ### A Pluto.jl notebook ###
-# v0.11.10
+# v0.11.14
 
 using Markdown
 using InteractiveUtils
 
 # ╔═╡ 1ca14906-eca1-11ea-23f6-472ed97d75aa
 begin
+# 	import Pkg
+# 	Pkg.activate(mktempdir())
+# 	Pkg.add(["Images", "ImageIO", "ImageMagick", "FFTW", "DSP", "ImageFiltering", "PlutoUI"])
 	using Statistics
 	using Images
 	using FFTW
@@ -63,8 +66,8 @@ end
 
 # ╔═╡ 6d39fea8-ed3c-11ea-3d7c-3f62ca91ce23
 begin
-	large_image = load("tom_in_bowtie.jpg")
-	image = shrink_image(large_image, 7)
+	large_image = load("philip.jpg")
+	image = shrink_image(large_image, 8)
 end
 
 # ╔═╡ 2f446dcc-ee15-11ea-0e78-931ff507b5e5
@@ -168,16 +171,16 @@ end
 # ╠═5afed4ea-ee18-11ea-1aa4-abca154b3793
 # ╠═6340c0f8-ee18-11ea-1765-45f4bc140670
 # ╟─9c90feb8-ec79-11ea-2870-31be5cedff43
-# ╟─1ca14906-eca1-11ea-23f6-472ed97d75aa
-# ╟─84e6a57c-edfc-11ea-01a0-157f1df77518
-# ╟─68f2afec-eca2-11ea-0758-2f22c7afdd94
-# ╟─aa3b9bd6-ed35-11ea-1bdc-33861bdbd29a
-# ╟─160eb236-eca1-11ea-1dbe-47ad61cc9397
-# ╟─fa3c5074-eca0-11ea-2d2d-bb6bcdeb834c
-# ╟─e40d807e-ed3a-11ea-2340-7f98bd5d04a2
-# ╟─beb6b4b0-eca1-11ea-1ece-e3c9931c9c13
-# ╟─58f4754e-ed31-11ea-0464-5bfccf397966
-# ╟─f28af11e-ed31-11ea-2b46-7dff147ccb48
-# ╟─572cf620-ecb2-11ea-0019-21666a30d9d2
-# ╟─587092e4-ecb2-11ea-18fc-ad5e9778fb30
-# ╟─991cb9b8-ecb8-11ea-3f80-5d95b2200259
+# ╠═1ca14906-eca1-11ea-23f6-472ed97d75aa
+# ╠═84e6a57c-edfc-11ea-01a0-157f1df77518
+# ╠═68f2afec-eca2-11ea-0758-2f22c7afdd94
+# ╠═aa3b9bd6-ed35-11ea-1bdc-33861bdbd29a
+# ╠═160eb236-eca1-11ea-1dbe-47ad61cc9397
+# ╠═fa3c5074-eca0-11ea-2d2d-bb6bcdeb834c
+# ╠═e40d807e-ed3a-11ea-2340-7f98bd5d04a2
+# ╠═beb6b4b0-eca1-11ea-1ece-e3c9931c9c13
+# ╠═58f4754e-ed31-11ea-0464-5bfccf397966
+# ╠═f28af11e-ed31-11ea-2b46-7dff147ccb48
+# ╠═572cf620-ecb2-11ea-0019-21666a30d9d2
+# ╠═587092e4-ecb2-11ea-18fc-ad5e9778fb30
+# ╠═991cb9b8-ecb8-11ea-3f80-5d95b2200259
