@@ -92,12 +92,12 @@ md"### Exercise 1.2
 Write a function newton_sqrt(x) which implements the above algorithm."
 
 # ╔═╡ 4896bf0c-e754-11ea-19dc-1380bb356ab6
-# a=x/2 is the default value of `a`
+# a = x/2 is the default value of `a`
 function newton_sqrt(x, error_margin=0.01, a=x / 2)
-	b = x / a
+	b = x / a # initial guess
 	while abs(x - b) <= 0.01
-		b = x / a
-	    a = (b + a) / 2
+		b = x / a # update value of guess
+	    a = (b + a) / 2 # update modifier for next guess
 	end
 	return a
 end

@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.11.13
+# v0.11.14
 
 using Markdown
 using InteractiveUtils
@@ -32,7 +32,7 @@ Feel free to ask questions!
 # ╔═╡ 911ccbce-ed68-11ea-3606-0384e7580d7c
 # edit the code below to set your name and kerberos ID (i.e. email without @mit.edu)
 
-student = (name = "Jazzy Doe", kerberos_id = "jazz")
+student = (name = "Charlie Roth", kerberos_id = "charlieroth4@icloud.com")
 
 # press the ▶ button in the bottom right of this cell to run your edits
 # or use Shift+Enter
@@ -43,7 +43,7 @@ student = (name = "Jazzy Doe", kerberos_id = "jazz")
 # ╔═╡ 8ef13896-ed68-11ea-160b-3550eeabbd7d
 md"""
 
-Submission by: **_$(student.name)_** ($(student.kerberos_id)@mit.edu)
+Submission by: **_$(student.name)_** ($(student.kerberos_id))
 """
 
 # ╔═╡ 5f95e01a-ee0a-11ea-030c-9dba276aba92
@@ -87,33 +87,41 @@ md"#### Exerise 1.1
 "
 
 # ╔═╡ f51333a6-eded-11ea-34e6-bfbb3a69bcb0
-random_vect = missing # replace this with your code!
+random_vect = rand(10)
 
 # ╔═╡ cf738088-eded-11ea-2915-61735c2aa990
 md"👉 Make a function `mean` using a `for` loop, which computes the mean/average of a vector of numbers."
 
 # ╔═╡ 0ffa8354-edee-11ea-2883-9d5bfea4a236
 function mean(x)
+	avg = 0.0
+
+	for num in x
+		avg = avg + num
+	end
 	
-	return missing
+	return avg / length(x)
 end
 
 # ╔═╡ 1f104ce4-ee0e-11ea-2029-1d9c817175af
-mean([1, 2, 3])
+mean([1,2,3])
 
 # ╔═╡ 1f229ca4-edee-11ea-2c56-bb00cc6ea53c
 md"👉 Define `m` to be the mean of `random_vect`."
 
 # ╔═╡ 2a391708-edee-11ea-124e-d14698171b68
-m = missing
+m = mean(random_vect)
 
 # ╔═╡ e2863d4c-edef-11ea-1d67-332ddca03cc4
 md"""👉 Write a function `demean`, which takes a vector `x` and subtracts the mean from each value in `x`."""
 
 # ╔═╡ ec5efe8c-edef-11ea-2c6f-afaaeb5bc50c
 function demean(x)
-	
-	return missing
+	mean_val = mean(x)
+	for i = 1:length(x)
+		x[i] = x[i] - mean_val
+	end
+	return x
 end
 
 # ╔═╡ 29e10640-edf0-11ea-0398-17dbf4242de3
@@ -144,9 +152,24 @@ md"""
 
 # ╔═╡ b6b65b94-edf0-11ea-3686-fbff0ff53d08
 function create_bar()
-	
-	return missing
+	vect = zeros(Int, 100)
+	vect_len = length(vect)
+	mid = Int(vect_len / 2)
+	lower, upper = mid - 10, mid + 10
+# 	return ("lower" => lower, "mid" => mid, "upper" => upper)
+    vect[lower:mid] .= 1
+# 	for i in lower:mid
+# 		vect[i] = 1
+# 	end
+	vect[mid:upper] .= 1
+# 	for j in mid:upper
+# 		vect[j] = 1
+# 	end
+	return vect
 end
+
+# ╔═╡ ec8fe1f4-0330-11eb-2817-d150570a5bc1
+create_bar()
 
 # ╔═╡ 22f28dae-edf2-11ea-25b5-11c369ae1253
 md"""
@@ -157,7 +180,6 @@ md"""
 
 # ╔═╡ 8c19fb72-ed6c-11ea-2728-3fa9219eddc4
 function vecvec_to_matrix(vecvec)
-	
 	return missing
 end
 
@@ -1349,10 +1371,10 @@ sobel_camera_image = Gray.(process_raw_camera_data(sobel_raw_camera_data));
 with_sobel_edge_detect(sobel_camera_image)
 
 # ╔═╡ Cell order:
-# ╠═83eb9ca0-ed68-11ea-0bc5-99a09c68f867
+# ╟─83eb9ca0-ed68-11ea-0bc5-99a09c68f867
 # ╟─8ef13896-ed68-11ea-160b-3550eeabbd7d
 # ╟─ac8ff080-ed61-11ea-3650-d9df06123e1f
-# ╠═911ccbce-ed68-11ea-3606-0384e7580d7c
+# ╟─911ccbce-ed68-11ea-3606-0384e7580d7c
 # ╟─5f95e01a-ee0a-11ea-030c-9dba276aba92
 # ╠═65780f00-ed6b-11ea-1ecf-8b35523a7ac0
 # ╟─67461396-ee0a-11ea-3679-f31d46baa9b4
@@ -1381,7 +1403,8 @@ with_sobel_edge_detect(sobel_camera_image)
 # ╠═73ef1d50-edf0-11ea-343c-d71706874c82
 # ╟─a5f8bafe-edf0-11ea-0da3-3330861ae43a
 # ╠═b6b65b94-edf0-11ea-3686-fbff0ff53d08
-# ╟─d862fb16-edf1-11ea-36ec-615d521e6bc0
+# ╠═ec8fe1f4-0330-11eb-2817-d150570a5bc1
+# ╠═d862fb16-edf1-11ea-36ec-615d521e6bc0
 # ╟─e3394c8a-edf0-11ea-1bb8-619f7abb6881
 # ╟─22f28dae-edf2-11ea-25b5-11c369ae1253
 # ╠═8c19fb72-ed6c-11ea-2728-3fa9219eddc4
@@ -1472,26 +1495,26 @@ with_sobel_edge_detect(sobel_camera_image)
 # ╠═1c8b4658-ee0c-11ea-2ede-9b9ed7d3125e
 # ╟─f8bd22b8-ee14-11ea-04aa-ab16fd01826e
 # ╠═2a9dd06a-ee13-11ea-3f84-67bb309c77a8
-# ╟─b424e2aa-ee14-11ea-33fa-35491e0b9c9d
+# ╠═b424e2aa-ee14-11ea-33fa-35491e0b9c9d
 # ╠═38eb92f6-ee13-11ea-14d7-a503ac04302e
-# ╟─bc1c20a4-ee14-11ea-3525-63c9fa78f089
+# ╠═bc1c20a4-ee14-11ea-3525-63c9fa78f089
 # ╠═24c21c7c-ee14-11ea-1512-677980db1288
 # ╟─27847dc4-ee0a-11ea-0651-ebbbb3cfd58c
-# ╠═b01858b6-edf3-11ea-0826-938d33c19a43
+# ╟─b01858b6-edf3-11ea-0826-938d33c19a43
 # ╟─7c1bc062-ee15-11ea-30b1-1b1e76520f13
 # ╠═7c2ec6c6-ee15-11ea-2d7d-0d9401a5e5d1
-# ╟─649df270-ee24-11ea-397e-79c4355e38db
+# ╠═649df270-ee24-11ea-397e-79c4355e38db
 # ╟─9afc4dca-ee16-11ea-354f-1d827aaa61d2
 # ╠═cf6b05e2-ee16-11ea-3317-8919565cb56e
 # ╟─e3616062-ee27-11ea-04a9-b9ec60842a64
-# ╟─e5b6cd34-ee27-11ea-0d60-bd4796540b18
+# ╠═e5b6cd34-ee27-11ea-0d60-bd4796540b18
 # ╟─d06ea762-ee27-11ea-2e9c-1bcff86a3fe0
-# ╟─e1dc0622-ee16-11ea-274a-3b6ec9e15ab5
+# ╠═e1dc0622-ee16-11ea-274a-3b6ec9e15ab5
 # ╟─efd1ceb4-ee1c-11ea-350e-f7e3ea059024
 # ╟─3cd535e4-ee26-11ea-2482-fb4ad43dda19
 # ╟─7c41f0ca-ee15-11ea-05fb-d97a836659af
 # ╠═8b96e0bc-ee15-11ea-11cd-cfecea7075a0
-# ╟─0cabed84-ee1e-11ea-11c1-7d8a4b4ad1af
+# ╠═0cabed84-ee1e-11ea-11c1-7d8a4b4ad1af
 # ╟─5a5135c6-ee1e-11ea-05dc-eb0c683c2ce5
 # ╟─577c6daa-ee1e-11ea-1275-b7abc7a27d73
 # ╠═275a99c8-ee1e-11ea-0a76-93e3618c9588
@@ -1499,20 +1522,20 @@ with_sobel_edge_detect(sobel_camera_image)
 # ╟─6e53c2e6-ee1e-11ea-21bd-c9c05381be07
 # ╠═e7f8b41a-ee25-11ea-287a-e75d33fbd98b
 # ╟─8a335044-ee19-11ea-0255-b9391246d231
-# ╠═7c50ea80-ee15-11ea-328f-6b4e4ff20b7e
+# ╟─7c50ea80-ee15-11ea-328f-6b4e4ff20b7e
 # ╠═aad67fd0-ee15-11ea-00d4-274ec3cda3a3
 # ╟─8ae59674-ee18-11ea-3815-f50713d0fa08
-# ╟─94c0798e-ee18-11ea-3212-1533753eabb6
+# ╠═94c0798e-ee18-11ea-3212-1533753eabb6
 # ╠═a75701c4-ee18-11ea-2863-d3042e71a68b
-# ╟─f461f5f2-ee18-11ea-3d03-95f57f9bf09e
+# ╠═f461f5f2-ee18-11ea-3d03-95f57f9bf09e
 # ╟─7c6642a6-ee15-11ea-0526-a1aac4286cdd
 # ╠═9eeb876c-ee15-11ea-1794-d3ea79f47b75
 # ╟─1a0324de-ee19-11ea-1d4d-db37f4136ad3
-# ╠═1bf94c00-ee19-11ea-0e3c-e12bc68d8e28
+# ╟─1bf94c00-ee19-11ea-0e3c-e12bc68d8e28
 # ╟─1ff6b5cc-ee19-11ea-2ca8-7f00c204f587
 # ╟─0001f782-ee0e-11ea-1fb4-2b5ef3d241e2
-# ╠═1b85ee76-ee10-11ea-36d7-978340ef61e6
-# ╠═477d0a3c-ee10-11ea-11cf-07b0e0ce6818
+# ╟─1b85ee76-ee10-11ea-36d7-978340ef61e6
+# ╟─477d0a3c-ee10-11ea-11cf-07b0e0ce6818
 # ╟─91f4778e-ee20-11ea-1b7e-2b0892bd3c0f
 # ╟─8ffe16ce-ee20-11ea-18bd-15640f94b839
 # ╟─5842895a-ee10-11ea-119d-81e4c4c8c53b
