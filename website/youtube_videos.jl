@@ -25,4 +25,9 @@ videos = Dict(
               "covid-data" => "m1dmT-31Qwc",
               "dataframes" => "Pt8Iz4Udg2E",
               "functions-are-objects" => "_O-HBDZMLrM",
+              "covid-live" => "Yx055xdSkx0",
+              "grant-epidemic" => "SVR9QW53fMc",
+              "computational-illustrated" => "6bBFkBCzwh4",
+              "matrix-graphs" => "zxHVpNnFt1U",
+              "verbs-nouns" => "LvoLXE0U5og",
 )
