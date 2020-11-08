@@ -24,7 +24,11 @@ md"""
 """
 
 # ╔═╡ 4c13d558-ee15-11ea-2ed9-c5fb90d93881
-kernel = Kernel.gaussian((2, 2))
+kernel = Kernel.gaussian((2,2))
+# kernel = Kernel.sobel()[2]
+
+# ╔═╡ 0126101e-0446-11eb-27f7-c58d0f586c43
+sum(kernel)
 
 # ╔═╡ 673f7ac0-ee16-11ea-35d0-cf3da430b843
 sum(kernel)
@@ -72,9 +76,6 @@ end
 
 # ╔═╡ 2f446dcc-ee15-11ea-0e78-931ff507b5e5
 size(image)
-
-# ╔═╡ 14d5b144-ee18-11ea-0080-c187f068c168
-image
 
 # ╔═╡ 160eb236-eca1-11ea-1dbe-47ad61cc9397
 function rgb_to_float(color)
@@ -145,6 +146,9 @@ function convolve(M, kernel, M_index_func=clamp_at_boundary)
 end
 
 # ╔═╡ 5afed4ea-ee18-11ea-1aa4-abca154b3793
+conv_image_gray = Gray.(abs.(convolve(image, kernel)))
+
+# ╔═╡ 0bf249a8-0447-11eb-1bf7-17f72030203c
 conv_image = convolve(image, kernel)
 
 # ╔═╡ 6340c0f8-ee18-11ea-1765-45f4bc140670
@@ -164,11 +168,12 @@ end
 # ╠═6d39fea8-ed3c-11ea-3d7c-3f62ca91ce23
 # ╠═2f446dcc-ee15-11ea-0e78-931ff507b5e5
 # ╠═4c13d558-ee15-11ea-2ed9-c5fb90d93881
+# ╟─0126101e-0446-11eb-27f7-c58d0f586c43
 # ╠═9424b46a-ee16-11ea-1819-f17ce53e9997
 # ╠═673f7ac0-ee16-11ea-35d0-cf3da430b843
-# ╠═14d5b144-ee18-11ea-0080-c187f068c168
 # ╠═18045956-ee18-11ea-3e34-612133e2e39c
 # ╠═5afed4ea-ee18-11ea-1aa4-abca154b3793
+# ╠═0bf249a8-0447-11eb-1bf7-17f72030203c
 # ╠═6340c0f8-ee18-11ea-1765-45f4bc140670
 # ╟─9c90feb8-ec79-11ea-2870-31be5cedff43
 # ╠═1ca14906-eca1-11ea-23f6-472ed97d75aa

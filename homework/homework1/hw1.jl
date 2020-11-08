@@ -180,11 +180,11 @@ md"""
 
 # ╔═╡ 8c19fb72-ed6c-11ea-2728-3fa9219eddc4
 function vecvec_to_matrix(vecvec)
-	return missing
+	return hcat(vecvec...)
 end
 
 # ╔═╡ c4761a7e-edf2-11ea-1e75-118e73dadbed
-vecvec_to_matrix([[1,2], [3,4]])
+vecvec_to_matrix([[1,2],[3,4]])
 
 # ╔═╡ 393667ca-edf2-11ea-09c5-c5d292d5e896
 md"""
@@ -194,13 +194,18 @@ md"""
 """
 
 # ╔═╡ 9f1c6d04-ed6c-11ea-007b-75e7e780703d
-function matrix_to_vecvec(matrix)
-	
-	return missing
+function matrix_to_vecvec(matx)
+	return matx
 end
 
 # ╔═╡ 70955aca-ed6e-11ea-2330-89b4d20b1795
 matrix_to_vecvec([6 7; 8 9])
+
+# ╔═╡ 21711b5c-04d2-11eb-3741-d5ff9510903f
+begin
+	matx = [6 7; 8 9]
+	hcat(matx)
+end
 
 # ╔═╡ 5da8cbe8-eded-11ea-2e43-c5b7cc71e133
 begin
@@ -1413,6 +1418,7 @@ with_sobel_edge_detect(sobel_camera_image)
 # ╟─393667ca-edf2-11ea-09c5-c5d292d5e896
 # ╠═9f1c6d04-ed6c-11ea-007b-75e7e780703d
 # ╠═70955aca-ed6e-11ea-2330-89b4d20b1795
+# ╠═21711b5c-04d2-11eb-3741-d5ff9510903f
 # ╟─e06b7fbc-edf2-11ea-1708-fb32599dded3
 # ╟─5da8cbe8-eded-11ea-2e43-c5b7cc71e133
 # ╟─45815734-ee0a-11ea-2982-595e1fc0e7b1
